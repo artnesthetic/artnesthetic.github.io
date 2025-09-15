@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Dental Art & Esthetic</title>
+  <style>
+    body {
+      margin:0;
+      font-family:'Poppins',Arial,sans-serif;
+      background:#f9fafc;
+      color:#333;
+      line-height:1.6;
+      overflow-x:hidden;
+      position:relative;
+    }
+
+    /* Marca de agua difuminada */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:url('2025_V1_LOGOTIP0_3.png') no-repeat center center;
+      background-size:600px; opacity:.05; filter:blur(14px); z-index:-1;
+    }
+
+    /* HERO */
+    header{
+      height:65vh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; color:#fff;
+      background:linear-gradient(270deg,#5c4bc6,#7a62f0,#4dbde7);
+      background-size:600% 600%; animation:gradientFlow 15s ease infinite;
+      padding:0 20px; position:relative; overflow:hidden;
+    }
+    header h1{font-size:3em; margin:0; position:relative; z-index:1;}
+    header p{font-size:1.3em; margin-top:15px; position:relative; z-index:1;}
+    header::after{
+      content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+      background:url('2025_V1_LOGOTIP0_3.png') no-repeat center / 320px;
+      opacity:.12; filter:blur(4px); width:320px; height:320px; z-index:0;
+    }
+    @keyframes gradientFlow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+    /* Animaciones scroll */
+    .fade-in{opacity:0; transform:translateY(40px); transition:all .8s ease;}
+    .fade-in.show{opacity:1; transform:translateY(0);}
+    section{padding:60px 20px; max-width:1100px; margin:auto;}
+    section h2{text-align:center; font-size:2em; color:#5c4bc6; margin-bottom:40px;}
+
+    /* Cards varias (sin cambios) */
+    .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:25px;}
+    .card{background:#fff; padding:25px 20px; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.07); transition:.3s; text-align:center;}
+    .card:hover{transform:translateY(-6px); box-shadow:0 6px 18px rgba(0,0,0,.12);}
+    .card h3{margin:12px 0; color:#5c4bc6;}
+    .icon{font-size:2em; color:#5c4bc6;}
+
+    .reasons{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:25px; text-align:center;}
+    .reason{background:#fff; padding:25px 20px; border-radius:12px; box-shadow:0 3px 8px rgba(0,0,0,.06); transition:.3s;}
+    .reason:hover{transform:translateY(-6px); box-shadow:0 6px 16px rgba(0,0,0,.1);}
+    .icon-circle{width:70px; height:70px; border-radius:50%; background:#f1f3f9; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;}
+    .icon-circle svg{width:32px; height:32px; fill:#5c4bc6;}
+    .reason h3{margin:10px 0; color:#5c4bc6; font-size:1.2em;}
+
+    .team{display:flex; flex-wrap:wrap; gap:25px; justify-content:center;}
+    .member{background:#fff; padding:20px; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.07); flex:1 1 250px; text-align:center; transition:.3s;}
+    .member:hover{transform:translateY(-5px);}
+    .member img{border-radius:50%; width:120px; height:120px; object-fit:cover; margin-bottom:10px; border:4px solid #eee; filter:grayscale(100%); transition:.5s;}
+    .member img:hover{filter:grayscale(0%);}
+    .member h4{margin:8px 0 4px; color:#5c4bc6;}
+
+    .testimonials{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px;}
+    .testimonial{background:#fff; padding:25px; border-radius:14px; box-shadow:0 3px 10px rgba(0,0,0,.06); font-style:italic;}
+    .testimonial strong{display:block; margin-top:10px; color:#5c4bc6; font-style:normal;}
+
+    /* Botones */
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 28px; border-radius:10px; font-weight:700; color:#fff!important; text-decoration:none!important; border:none!important; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,.2); transition:.2s;}
+    .btn:focus,.btn:focus-visible{outline:none!important; box-shadow:0 3px 8px rgba(0,0,0,.2);}
+    .btn-whatsapp{background:linear-gradient(135deg,#25D366,#128C7E);}
+    .btn-whatsapp:hover{transform:scale(1.05); background:linear-gradient(135deg,#1ebe5b,#0f6e5f);}
+    .btn-primary{background:linear-gradient(135deg,#5c4bc6,#7a62f0);}
+    .btn-primary:hover{transform:scale(1.05); background:linear-gradient(135deg,#4b3bb0,#6a54d9);}
+    .btn-secondary{background:#ccc; color:#333!important; box-shadow:0 2px 6px rgba(0,0,0,.15);}
+    .btn-secondary:hover{background:#bbb;}
+
+    .contacto{background:#f1f3f9; padding:50px 20px;}
+    .contact-card{background:#fff; max-width:600px; margin:auto; padding:30px; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,.08); text-align:center;}
+    .contact-card a{color:#5c4bc6; font-weight:600; text-decoration:none;}
+    .contact-card a:hover{text-decoration:underline;}
+    .cta{text-align:center; padding:50px 20px;}
+    footer{background:#5c4bc6; color:#fff; text-align:center; padding:20px; font-size:.9em;}
+    footer img{display:block; margin:0 auto 10px; height:60px; opacity:.35; filter:blur(1px);}
+
+    /* Modal general */
+    .modal{display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,.6); justify-content:center; align-items:center;}
+    .modal-content{background:#fff; padding:25px; border-radius:12px; max-width:420px; width:90%; box-shadow:0 5px 20px rgba(0,0,0,.25); position:relative;}
+    .modal-content h2{text-align:center; color:#5c4bc6; margin-bottom:20px;}
+    .close{position:absolute; top:10px; right:15px; font-size:1.5em; cursor:pointer; color:#666;}
+
+    /* ===== Pulido SOLO del formulario ===== */
+    body.modal-open{overflow:hidden;}
+
+    .modal-content form{--gap:16px;}
+    .form-grid{display:flex; flex-direction:column; gap:var(--gap);}
+    .form-row{display:grid; grid-template-columns:1fr; gap:var(--gap);}
+    .form-row--two{grid-template-columns:1fr;}
+    @media (min-width:640px){
+      .modal-content{max-width:640px;}
+      .form-row--two{grid-template-columns:1fr 1fr;}
+    }
+
+    .field label{display:block; margin:0 0 6px; font-weight:600; color:#444;}
+    .field input,.field select,.field textarea{
+      width:100%; box-sizing:border-box;
+      height:44px; padding:10px 12px;
+      border:1.5px solid #e5e7eb; border-radius:10px;
+      background:#fff; font-family:inherit; font-size:1rem;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .field textarea{min-height:96px; height:auto; resize:vertical;}
+    .field input:focus,.field select:focus,.field textarea:focus{
+      border-color:#5c4bc6; box-shadow:0 0 0 3px rgba(92,75,198,.15); outline:none;
+    }
+
+    /* Checkbox alineado en la fila con Preferencia */
+    .checkbox-inline{
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
+    }
+    /* Alinear visualmente con el borde inferior del select (altura 44 + label) */
+    @media (min-width:640px){ .form-row--two .checkbox-inline{margin-top:28px;} }
+
+    .modal-content .form-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:8px;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Art & Esthetic</h1>
+    <p>Clínica Dental en Barcelona · Sonrisas con salud y estilo</p>
+  </header>
+
+  <section class="fade-in">
+    <h2>Servicios</h2>
+    <div class="services">
+      <div class="card"><div class="icon">🦷</div><h3>Implantes Dentales</h3><p>Soluciones seguras y estéticas con la tecnología más avanzada.</p></div>
+      <div class="card"><div class="icon">😁</div><h3>Ortodoncia Invisible</h3><p>Alineadores transparentes y brackets estéticos para una sonrisa perfecta.</p></div>
+      <div class="card"><div class="icon">✨</div><h3>Estética Dental</h3><p>Carillas, blanqueamientos y tratamientos para mejorar la luminosidad.</p></div>
+      <div class="card"><div class="icon">👶</div><h3>Odontopediatría</h3><p>Tratamientos infantiles con un enfoque amable y cercano.</p></div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Por qué elegirnos</h2>
+    <div class="reasons">
+      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2h2v6H9zM5 8h10v2H5zM19 14.5a4.5 4.5 0 0 0-3-4.24V8h-2v2.26a4.5 4.5 0 0 0 0 8.48V22h2v-3.26a4.5 4.5 0 0 0 3-4.24z"/></svg></div><h3>Tecnología Avanzada</h3><p>Equipos modernos para tratamientos seguros y eficaces.</p></div>
+      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8l-4 4-4-4H2v2l8 8 6-6 2 2 4-4-4-4z"/></svg></div><h3>Trato Cercano</h3><p>Nos preocupamos por tu bienestar en cada visita.</p></div>
+      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div><h3>Financiación Flexible</h3><p>Opciones adaptadas para que cuides tu sonrisa sin preocuparte.</p></div>
+      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><h3>Experiencia Contrastada</h3><p>Años de trayectoria y cientos de pacientes satisfechos.</p></div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Nuestro Equipo</h2>
+    <div class="team">
+      <div class="member"><img src="doctor1.jpg" alt="Doctor"><h4>Dr. Juan Pérez</h4><p>Especialista en Implantología</p></div>
+      <div class="member"><img src="doctor2.jpg" alt="Doctora"><h4>Dra. Laura García</h4><p>Ortodoncia y Estética Dental</p></div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Testimonios</h2>
+    <div class="testimonials">
+      <div class="testimonial">“Muy profesionales, me explicaron todo con detalle y el resultado ha sido excelente.”<strong>Ana G.</strong></div>
+      <div class="testimonial">“Ambiente muy agradable, cero dolor y un trato humano increíble. 100% recomendable.”<strong>Carlos R.</strong></div>
+      <div class="testimonial">“Llevé a mis hijos y salieron encantados. Atención cariñosa y eficaz.”<strong>Laura S.</strong></div>
+    </div>
+  </section>
+
+  <section class="contacto fade-in">
+    <h2>Contacto</h2>
+    <div class="contact-card">
+      <p><strong>Clínica Art & Esthetic Meridiana</strong><br>
+      <a href="https://www.google.com/maps?q=Av.+Meridiana+348,+08027+Barcelona" target="_blank">Av. Meridiana 348, Entresuelo B, 08027 Barcelona</a></p>
+      <p><strong>Clínica Art & Esthetic Poblenou</strong><br>
+      <a href="https://www.google.com/maps?q=Carrer+de+Llull+321,+08019+Barcelona" target="_blank">Carrer de Llull 321, 08019 Barcelona</a></p>
+      <p>📞 <a href="tel:+34683176446">+34 683 176 446</a></p>
+      <p>✉️ <a href="mailto:info@artesthetic.es">info@artesthetic.es</a></p>
+      <a class="btn btn-whatsapp" href="https://wa.me/34683176446" target="_blank">💬 Contáctanos por WhatsApp</a>
+    </div>
+  </section>
+
+  <section class="cta fade-in">
+    <h2>¿Listo para sonreír con confianza?</h2>
+    <button class="btn btn-primary" id="openModal">Reserva tu cita ahora</button>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="citaModal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="citaTitle">
+      <span class="close" id="closeModal" aria-label="Cerrar">&times;</span>
+      <h2 id="citaTitle">Reserva tu cita</h2>
+
+      <form action="https://formsubmit.co/68fc8e9075ba2e34807c2e2db1fd6e73" method="POST" autocomplete="on">
+	    <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Nueva cita - Art & Esthetic">
+  <input type="hidden" name="_next" value="https://midominio/prueba.html">
+  <input type="hidden" name="_autoresponse" value="Gracias por contactar con Art & Esthetic. Te responderemos en breve.">
+  <input type="text" name="_honey" style="display:none">
+        <div class="form-grid">
+
+          <div class="form-row form-row--two">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" placeholder="Tu teléfono" required inputmode="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" placeholder="tu@correo.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="descripcion">¿Qué necesitas?</label>
+              <textarea id="descripcion" name="descripcion" rows="3" placeholder="Breve descripción del motivo de tu cita"></textarea>
+            </div>
+          </div>
+
+          <div class="form-row form-row--two">
+            <div class="field">
+              <label for="preferencia">Preferencia</label>
+              <select id="preferencia" name="preferencia">
+                <option value="Mañana">Mañana</option>
+                <option value="Tarde">Tarde</option>
+              </select>
+            </div>
+
+            <label class="checkbox-inline" for="urgente">
+              <input type="checkbox" id="urgente" name="urgente">
+              <span>Marcar como urgente</span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <img src="2025_V1_LOGOTIP0_3.png" alt="Logo Art & Esthetic">
+    © 2025 Art & Esthetic · Clínica Dental Barcelona
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const faders=document.querySelectorAll('.fade-in');
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); }});
+    },{threshold:.2});
+    faders.forEach(el=>observer.observe(el));
+
+    // Modal
+    const modal=document.getElementById('citaModal');
+    const openModal=document.getElementById('openModal');
+    const closeModal=document.getElementById('closeModal');
+    const cancelBtn=document.getElementById('cancelBtn');
+
+    function openCita(){ modal.style.display='flex'; document.body.classList.add('modal-open'); modal.setAttribute('aria-hidden','false'); }
+    function closeCita(){ modal.style.display='none'; document.body.classList.remove('modal-open'); modal.setAttribute('aria-hidden','true'); }
+
+    openModal.addEventListener('click',openCita);
+    closeModal.addEventListener('click',closeCita);
+    cancelBtn.addEventListener('click',closeCita);
+    window.addEventListener('click',e=>{ if(e.target===modal) closeCita(); });
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape') closeCita(); });
+  </script>
+</body>
+</html>
