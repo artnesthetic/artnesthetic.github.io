@@ -129,6 +129,37 @@
     @media (min-width:640px){ .form-row--two .checkbox-inline{margin-top:28px;} }
 
     .modal-content .form-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:8px;}
+	
+	
+/* === Espacio extra arriba/abajo del modal === */
+:root{
+  /* cambia este valor a tu gusto */
+  --modal-padding-block: clamp(24px, 6vh, 64px); /* arriba y abajo */
+  --modal-padding-inline: 20px;                  /* izquierda/derecha */
+}
+
+.modal{
+  overflow: auto;
+  padding-block: var(--modal-padding-block);
+  padding-inline: var(--modal-padding-inline);
+}
+
+/* El contenido nunca ocupará toda la altura: deja el margen definido */
+.modal-content{
+  max-height: calc(100vh - (2 * var(--modal-padding-block)));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  width: min(90vw, 640px);
+}
+
+/* Viewport real en móviles modernos */
+@supports (height: 100dvh){
+  .modal-content{
+    max-height: calc(100dvh - (2 * var(--modal-padding-block)));
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -196,14 +227,14 @@
   <div class="modal" id="citaModal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="citaTitle">
       <span class="close" id="closeModal" aria-label="Cerrar">&times;</span>
-      <h2 id="citaTitle">Reserva tu cita</h2>
+      <!-- <h2 id="citaTitle">Reserva tu cita</h2>  -->
 
       <form action="https://formsubmit.co/68fc8e9075ba2e34807c2e2db1fd6e73" method="POST" autocomplete="on">
 	    <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="Nueva cita - Art & Esthetic">
-  <input type="hidden" name="_next" value="https://midominio/prueba.html">
-  <input type="hidden" name="_autoresponse" value="Gracias por contactar con Art & Esthetic. Te responderemos en breve.">
-  <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_subject" value="Nueva cita - Art & Esthetic">
+        <input type="hidden" name="_next" value="https://midominio/prueba.html">
+        <input type="hidden" name="_autoresponse" value="Gracias por contactar con Art & Esthetic. Te responderemos en breve.">
+        <input type="text" name="_honey" style="display:none">
         <div class="form-grid">
 
           <div class="form-row form-row--two">
@@ -257,7 +288,7 @@
   </div>
 
   <footer>
-    <img src="logotipo.png" alt="Logo Art & Esthetic">
+    <img src="2025_V1_LOGOTIP0_3.png" alt="Logo Art & Esthetic">
     © 2025 Art & Esthetic · Clínica Dental Barcelona
   </footer>
 
