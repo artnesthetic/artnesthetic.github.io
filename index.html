@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clínica Dental Art & Esthetic</title>
-  <style> 
+  <style>
     body {
       margin:0;
       font-family:'Poppins',Arial,sans-serif;
@@ -46,7 +49,7 @@
     section{padding:60px 20px; max-width:1100px; margin:auto;}
     section h2{text-align:center; font-size:2em; color:#5c4bc6; margin-bottom:40px;}
 
-    /* Cards varias (sin cambios) */
+    /* Cards varias */
     .services{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:25px;}
     .card{background:#fff; padding:25px 20px; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.07); transition:.3s; text-align:center;}
     .card:hover{transform:translateY(-6px); box-shadow:0 6px 18px rgba(0,0,0,.12);}
@@ -97,7 +100,6 @@
 
     /* ===== Pulido SOLO del formulario ===== */
     body.modal-open{overflow:hidden;}
-
     .modal-content form{--gap:16px;}
     .form-grid{display:flex; flex-direction:column; gap:var(--gap);}
     .form-row{display:grid; grid-template-columns:1fr; gap:var(--gap);}
@@ -106,7 +108,6 @@
       .modal-content{max-width:640px;}
       .form-row--two{grid-template-columns:1fr 1fr;}
     }
-
     .field label{display:block; margin:0 0 6px; font-weight:600; color:#444;}
     .field input,.field select,.field textarea{
       width:100%; box-sizing:border-box;
@@ -125,41 +126,31 @@
       display:flex; align-items:center; gap:10px;
       user-select:none;
     }
-    /* Alinear visualmente con el borde inferior del select (altura 44 + label) */
     @media (min-width:640px){ .form-row--two .checkbox-inline{margin-top:28px;} }
 
     .modal-content .form-actions{display:flex; justify-content:flex-end; gap:10px; margin-top:8px;}
-	
-	
-/* === Espacio extra arriba/abajo del modal === */
-:root{
-  /* cambia este valor a tu gusto */
-  --modal-padding-block: clamp(24px, 6vh, 64px); /* arriba y abajo */
-  --modal-padding-inline: 20px;                  /* izquierda/derecha */
-}
 
-.modal{
-  overflow: auto;
-  padding-block: var(--modal-padding-block);
-  padding-inline: var(--modal-padding-inline);
-}
-
-/* El contenido nunca ocupará toda la altura: deja el margen definido */
-.modal-content{
-  max-height: calc(100vh - (2 * var(--modal-padding-block)));
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  width: min(90vw, 640px);
-}
-
-/* Viewport real en móviles modernos */
-@supports (height: 100dvh){
-  .modal-content{
-    max-height: calc(100dvh - (2 * var(--modal-padding-block)));
-  }
-}
-
-
+    /* === Espacio extra arriba/abajo del modal === */
+    :root{
+      --modal-padding-block: clamp(24px, 6vh, 64px);
+      --modal-padding-inline: 20px;
+    }
+    .modal{
+      overflow: auto;
+      padding-block: var(--modal-padding-block);
+      padding-inline: var(--modal-padding-inline);
+    }
+    .modal-content{
+      max-height: calc(100vh - (2 * var(--modal-padding-block)));
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      width: min(90vw, 640px);
+    }
+    @supports (height: 100dvh){
+      .modal-content{
+        max-height: calc(100dvh - (2 * var(--modal-padding-block)));
+      }
+    }
   </style>
 </head>
 <body>
@@ -181,10 +172,18 @@
   <section class="fade-in">
     <h2>Por qué elegirnos</h2>
     <div class="reasons">
-      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2h2v6H9zM5 8h10v2H5zM19 14.5a4.5 4.5 0 0 0-3-4.24V8h-2v2.26a4.5 4.5 0 0 0 0 8.48V22h2v-3.26a4.5 4.5 0 0 0 3-4.24z"/></svg></div><h3>Tecnología Avanzada</h3><p>Equipos modernos para tratamientos seguros y eficaces.</p></div>
-      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8l-4 4-4-4H2v2l8 8 6-6 2 2 4-4-4-4z"/></svg></div><h3>Trato Cercano</h3><p>Nos preocupamos por tu bienestar en cada visita.</p></div>
-      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div><h3>Financiación Flexible</h3><p>Opciones adaptadas para que cuides tu sonrisa sin preocuparte.</p></div>
-      <div class="reason"><div class="icon-circle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div><h3>Experiencia Contrastada</h3><p>Años de trayectoria y cientos de pacientes satisfechos.</p></div>
+      <div class="reason"><div class="icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 2h2v6H9zM5 8h10v2H5zM19 14.5a4.5 4.5 0 0 0-3-4.24V8h-2v2.26a4.5 4.5 0 0 0 0 8.48V22h2v-3.26a4.5 4.5 0 0 0 3-4.24z"/></svg>
+      </div><h3>Tecnología Avanzada</h3><p>Equipos modernos para tratamientos seguros y eficaces.</p></div>
+      <div class="reason"><div class="icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 8l-4 4-4-4H2v2l8 8 6-6 2 2 4-4-4-4z"/></svg>
+      </div><h3>Trato Cercano</h3><p>Nos preocupamos por tu bienestar en cada visita.</p></div>
+      <div class="reason"><div class="icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+      </div><h3>Financiación Flexible</h3><p>Opciones adaptadas para que cuides tu sonrisa sin preocuparte.</p></div>
+      <div class="reason"><div class="icon-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div><h3>Experiencia Contrastada</h3><p>Años de trayectoria y cientos de pacientes satisfechos.</p></div>
     </div>
   </section>
 
@@ -212,9 +211,9 @@
       <a href="https://www.google.com/maps?q=Av.+Meridiana+348,+08027+Barcelona" target="_blank">Av. Meridiana 348, Entresuelo B, 08027 Barcelona</a></p>
       <p><strong>Clínica Dental Poblenou</strong><br>
       <a href="https://www.google.com/maps?q=Carrer+de+Llull+240,+08005+Barcelona" target="_blank">Carrer Llull 240-244, Bajo, 08005 Barcelona</a></p>
-      <p>📞 <a href="tel:+34683176446">+34 683 176 446</a></p>
+      <p>📞 <a href="tel:+34672882850">+34 672 882 850</a></p>
       <p>✉️ <a href="mailto:info@artesthetic.es">info@artesthetic.es</a></p>
-      <a class="btn btn-whatsapp" href="https://wa.me/34683176446" target="_blank">💬 Contáctanos por WhatsApp</a>
+      <a class="btn btn-whatsapp" href="https://wa.me/34672882850" target="_blank">💬 Contáctanos por WhatsApp</a>
     </div>
   </section>
 
@@ -227,16 +226,26 @@
   <div class="modal" id="citaModal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="citaTitle">
       <span class="close" id="closeModal" aria-label="Cerrar">&times;</span>
-      <!-- <h2 id="citaTitle">Reserva tu cita</h2>  -->
 
-      <form action="https://formsubmit.co/68fc8e9075ba2e34807c2e2db1fd6e73" method="POST" autocomplete="on">
-	    <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Nueva cita - Art & Esthetic">
-        <input type="hidden" name="_next" value="https://artnesthetic.github.io/index.html">
-        <input type="hidden" name="_autoresponse" value="Gracias por contactar con Art & Esthetic. Te responderemos en breve.">
-        <input type="text" name="_honey" style="display:none">
+      <!-- ===== Formulario con Formspree ===== -->
+      <form id="citaForm"
+            action="https://formspree.io/f/mdklqqow"
+            method="POST"
+            autocomplete="on"
+            data-redirect="https://artnesthetic.github.io/index.html">
+
+        <!-- Metadatos útiles -->
+        <input type="hidden" name="subject" value="Nueva cita - Art & Esthetic">
+        <input type="hidden" name="page" value="">
+
+        <!-- Honeypot antispam -->
+        <div style="position:absolute;left:-5000px;opacity:0" aria-hidden="true">
+          <label>Deja este campo vacío:
+            <input type="text" name="_hp">
+          </label>
+        </div>
+
         <div class="form-grid">
-
           <div class="form-row form-row--two">
             <div class="field">
               <label for="nombre">Nombre</label>
@@ -276,7 +285,6 @@
               <span>Marcar como urgente</span>
             </label>
           </div>
-
         </div>
 
         <div class="form-actions">
@@ -284,12 +292,13 @@
           <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
       </form>
+      <!-- ===== /Formulario ===== -->
     </div>
   </div>
 
   <footer>
     <img src="logotipo.png" alt="Logo Art & Esthetic">
-    © 2025 Art & Esthetic · Clínica Dental Barcelona
+    © 2017-2025 Art & Esthetic · Clínica Dental Barcelona
   </footer>
 
   <script>
@@ -314,6 +323,50 @@
     cancelBtn.addEventListener('click',closeCita);
     window.addEventListener('click',e=>{ if(e.target===modal) closeCita(); });
     window.addEventListener('keydown',e=>{ if(e.key==='Escape') closeCita(); });
+  </script>
+
+  <!-- Evita estado cacheado al volver atrás -->
+  <script>
+    window.addEventListener('pageshow', e => { if (e.persisted) location.reload(); });
+  </script>
+
+  <!-- Envío AJAX a Formspree con redirección -->
+  <script>
+  (() => {
+    const form = document.getElementById('citaForm');
+    if (!form) return;
+
+    // Rellenamos "page" con la URL actual para trazabilidad
+    const pageField = form.querySelector('input[name="page"]');
+    if (pageField) pageField.value = location.href;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.textContent : null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          const to = form.dataset.redirect || '/';
+          window.location.assign(to);  // redirección fiable tras enviar
+        } else {
+          alert('No se ha podido enviar el formulario ahora mismo. Inténtalo de nuevo en unos minutos.');
+        }
+      } catch (err) {
+        alert('Error de red. Revisa tu conexión e inténtalo de nuevo.');
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+      }
+    });
+  })();
   </script>
 </body>
 </html>
