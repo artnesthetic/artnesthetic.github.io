@@ -235,7 +235,7 @@
             data-redirect="https://artnesthetic.github.io/index.html">
 
         <!-- Metadatos útiles -->
-        <input type="hidden" name="subject" value="Nueva cita - Art & Esthetic">
+        <input type="hidden" name="subject" value="Solicitud de cita - Art & Esthetic">
         <input type="hidden" name="page" value="">
 
         <!-- Honeypot antispam -->
@@ -280,10 +280,13 @@
               </select>
             </div>
 
-            <label class="checkbox-inline" for="urgente">
-              <input type="checkbox" id="urgente" name="urgente">
-              <span>Marcar como urgente</span>
-            </label>
+  <div class="field">
+    <label for="clinica">Clínica</label>
+    <select id="clinica" name="clinica">
+      <option value="Meridiana">Meridiana</option>
+      <option value="Poblenou">Poblenou</option>
+    </select>
+  </div>
           </div>
         </div>
 
@@ -346,6 +349,9 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Enviando…'; }
+
+      const subjectValue = `Solicitud de cita en ${form.clinica.value} por la ${form.preferencia.value}`;
+      form.querySelector('input[name="subject"]').value = subjectValue;
 
       try {
         const res = await fetch(form.action, {
